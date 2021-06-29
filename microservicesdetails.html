@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CryptoTracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/icon.png" alt="" /></span>
+							<h1 id="title">Crypto Tracker</h1>
+							<p>Documentation</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html" id="top-link"><span class="icon solid fa-book">CryptoTracker Overview</span></a></li>
+								<li><a href="businessscenario.html" id="top-link"><span class="icon solid fa-briefcase">Business Scenario</span></a></li>
+								<li><a href="patternimplementations.html" id="portfolio-link"><span class="icon solid fa-th">Pattern Implementations</span></a></li>
+								<li><a href="infrastructuredetails.html" id="about-link"><span class="icon solid fa-layer-group">Infrastructure Details</span></a></li>
+								<li><a href="#top" id="contact-link"><span class="icon solid fa-sitemap">Microservices Details</span></a></li>
+								<li><a href="integrationtests.html" id="contact-link"><span class="icon solid fa-clipboard-check">Integration Tests</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://github.com/DevMUA/CryptoTracker" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Microservices <strong>Details</strong>
+							</header>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+							<header>
+								<h2>Microservices Overview</h2>
+							</header>
+
+							<p>An overview of the microservices:
+							</p>
+
+							<h2 id="overview-userinterface" style="margin-bottom: 1em;">User Interface</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to serve the user:</p>
+							<ul style="text-align: left;">
+								<li>Log In</li>
+								<li>Register</li>
+								<li>Create Alarm</li>
+								<li>Add Favourite Coin</li>
+								<li>See Crypto Coins</li>
+								<li>See News</li>
+								<li>See Predictions</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/userinterface.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/frontend">frontend</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>Server push notification
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>None
+							</strong>
+							</p>
+
+							<h2>Build</h2>
+
+							<p>To build this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "docker build -t frontend ."</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong>Run docker with docker-compose up on the main directory to build the whole project</li>
+								<li><strong>B: </strong>Have NodeJS installed and run "npm start" in the main front-end folder</li>
+							</ul>
+						</div>
+						<div class="container">
+
+							<h2 id="overview-userinterface" style="margin-top: 2em; margin-bottom: 1em;">Account microservice</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to store user data and serve the main user functionalities:</p>
+							<ul style="text-align: left;">
+								<li>Handle Registration and log in security</li>
+								<li>Store user alarms</li>
+								<li>Push Notifications to front-end by SSE when an alarm becomes active</li>
+								<li>Verify if alarm becomes true (each 10 seconds)</li>
+								<li>Store user favourite coins</li>
+								<li>Interface with email to notify user</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/accountmoduleoverview.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/accountModule/AccountApp">accountApp</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>alarmResponse
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>alarmRequest
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>Alarm Verification, Alarm notification
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>CQRS
+							</strong>
+							</p>
+
+							<h2>REST API endpoints:</h2>
+							<ul style="text-align: left;">
+								<li>/addAlarm  					>  takes the logged in user and adds an alarm that comes in json format</li>
+								<li>/getAlarm  					>  takes the logged in user and returns all alarms</li>
+								<li>/deleteAlarm={id} 			>  takes an alarm id and sends a json object aswell to delete the alarm with that id from user</li>
+								<li>/getFavouriteCoins 			>  takes the logged in user and returns his favourited coins</li>
+								<li>/addFavouriteCoins 			>  takes the logged in user and adds a coin in a json format</li>
+								<li>/deleteFavouriteCoin={id} 	>  takes the logged in user and a favourited coin id and deletes it</li>
+								<li>/api/v1/login			 	>  takes json object (user,password)</li>
+								<li>/api/v1/registration		>  takes json object (user,password) and stores the user</li>
+								<li>/api/v1/registration/confirm	>  takes a registration token and verifies a user after registration</li>
+							</ul>
+
+							<h2>Build</h2>
+
+							<p>To build this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "docker build -t account ."</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong>Run docker with docker-compose up on the main directory to build the whole project</li>
+								<li><strong>B: </strong>Build project with mvn clean and mvn build then run the JAR</li>
+							</ul>
+						</div>
+						<div class="container">
+
+							<h2 id="overview-userinterface" style="margin-top: 2em; margin-bottom: 1em;">News microservice</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to store news about different cryptos and provide the following functionalities:</p>
+							<ul style="text-align: left;">
+								<li>Give users tailored news depending on their favourite coins</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/newsoverview.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/repository">News</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>CQRS
+							</strong>
+							</p>
+
+							
+							<h2>REST API endpoints:</h2>
+							<ul style="text-align: left;">
+								<li>/api/news/all  				>  returns all the news</li>
+								<li>/api/news/{id}/{coins} 		>  returns news about a certain coin</li>
+							</ul>
+
+							<h2>Build</h2>
+
+							<p>To build this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "docker build -t news ."</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong>Run docker with docker-compose up on the main directory to build the whole project</li>
+								<li><strong>B: </strong>Build project with mvn clean and mvn build then run the JAR</li>
+							</ul>
+						</div>
+						<div class="container">
+
+							<h2 id="overview-userinterface" style="margin-top: 2em; margin-bottom: 1em;">Machine Learning module</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to give predictions based on pass values from cryptos:</p>
+							<ul style="text-align: left;">
+								<li>Give users machine learning predictions on coins</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/mlmoduleoverview.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/mlModule">mlModule</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>None
+							</strong>
+							</p>
+
+							<h2>Build</h2>
+
+							<p>To build this module you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this module you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong></li>
+								<li><strong>B: </strong></li>
+							</ul>
+						</div>
+											<div class="container">
+
+							<h2 id="overview-userinterface" style="margin-top: 2em; margin-bottom: 1em;">Information retrieval microservice</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to feed the other microservices information:</p>
+							<ul style="text-align: left;">
+								<li>Give other microservices they information they need</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/historicoverview.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/retrieval">retrieval</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>CQRS
+							</strong>
+							</p>
+
+							
+							<h2>REST API endpoints used:</h2>
+							<ul style="text-align: left;">
+								<li>/api/news/all  				>  returns all the news</li>
+								<li>/api/news/{id}/{coins} 		>  returns news about a certain coin</li>
+							</ul>
+
+							<h2>Build</h2>
+
+							<p>To build this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "docker build -t retrieval ."</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong>Run docker with docker-compose up on the main directory to build the whole project</li>
+								<li><strong>B: </strong>Build project with mvn clean and mvn build then run the JAR</li>
+							</ul>
+						</div>
+						<div class="container">
+
+							<h2 id="overview-userinterface" style="margin-top: 2em; margin-bottom: 1em;">Historic microservice</h2>
+
+							<p><strong>Description:</strong>The goal of this component is to store cryptocurrencies information and communicate with the machine learning module:</p>
+							<ul style="text-align: left;">
+								<li>Give users overall cryptocurrencies list</li>
+								<li>Gives detailed information on coins</li>
+								<li>Confirms if an alarm is true</li>
+								<li>Communicates the ML predictions to the frontend</li>
+							</ul>
+
+
+							<img class ="systemcontext" src="images/historicoverview.png" alt="" />
+							<p><strong style='font-size: 1em;'>Github repository:</strong><a href="https://github.com/DevMUA/CryptoTracker/tree/main/history">History</a>
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics consumed from:</strong>CoinsLiveUpdate,historic,alarmRequest,MLPredictions
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Kafka topics produced to:</strong>MLCoinInfo, alarmResponse
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'> Events reacted to:</strong>Alarm verification
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>Events produced:</strong>None
+							</strong>
+							</p>
+
+							<p><strong style='font-size: 1em;'>EDA Patterns implemented:</strong>CQRS
+							</strong>
+							</p>
+
+							
+							<h2>REST API endpoints:</h2>
+							<ul style="text-align: left;">
+								<li>/api/coins  				>  returns all the cryptocurrencies</li>
+								<li>/api/historic={coinID} 		>  returns historic information up to 30 days from a cryptocoin</li>
+								<li>/api/prediction/historic={CoinID}		>  returns machine learning prediction information up to 30 days from a cryptocoin</li>
+							</ul>
+
+							<h2>Build</h2>
+
+							<p>To build this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li>Run "docker build -t historic ."</li>
+							</ul>
+
+							<h2>Run</h2>
+
+							<p>To run this microservice you need to:</p>
+							<ul style="text-align: left;">
+								<li><strong>A: </strong>Run docker with docker-compose up on the main directory to build the whole project</li>
+								<li><strong>B: </strong>Build project with mvn clean and mvn build then run the JAR</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; CryptoTracker</li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

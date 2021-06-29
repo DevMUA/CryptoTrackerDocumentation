@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CryptoTracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/icon.png" alt="" /></span>
+							<h1 id="title">Crypto Tracker</h1>
+							<p>Documentation</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html" id="top-link"><span class="icon solid fa-book">CryptoTracker Overview</span></a></li>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-briefcase">Business Scenario</span></a></li>
+								<li><a href="patternimplementations.html" id="portfolio-link"><span class="icon solid fa-th">Pattern Implementations</span></a></li>
+								<li><a href="infrastructuredetails.html" id="about-link"><span class="icon solid fa-layer-group">Infrastructure Details</span></a></li>
+								<li><a href="microservicesdetails.html" id="contact-link"><span class="icon solid fa-sitemap">Microservices Details</span></a></li>
+								<li><a href="integrationtests.html" id="contact-link"><span class="icon solid fa-clipboard-check">Integration Tests</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://github.com/DevMUA/CryptoTracker" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Business <strong>Scenario</strong>
+							</header>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Scenario Overview</h2>
+							</header>
+
+							<p>In the application CryptoTracker we have a scenario based on tracking multiple crypto coins and providing
+								the users with tools to support their actions. In the following Scenario we follow the addition of adding an alarm.
+							</p>
+
+							<div class="row">
+								<div class="col-12 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/businessprocess.png" alt="" /></a>
+										<header>
+											<h3>Overall process of the alarm</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>Architecture</h2>
+							</header>
+
+							<h3>System Context</h3>
+
+							<img class ="systemcontext" src="images/systemcontext transparent.png" alt="" />
+
+							<p>There are four main microservices implemented in this architecture. They serve different purposes through the application.
+								The ones involved in the creating and maintence of an alarm are the Account management module, the information retrieval module and finally the
+								crypto historic module.
+							</p>
+
+							<h3>Components view</h3>
+
+							<p>Deploying the different components using an event-driven and microservice pattern, we organize our modules like the following picture
+							</p>
+
+							<img class ="systemcontext" src="images/componentsview.png" alt="" />
+
+							<p>
+							<strong>1 -</strong> Top left represents our user interface, implemented to support our various functionalities, in this case our alarm creation and monotorization
+							</p>
+							<p>
+							<strong>2 -</strong> The event backbone is used to define a set of topics used in the different microservices and event sourcing for these as well.
+							</p>
+
+							<img class ="systemcontext" src="images/componentsview 2.png" alt="" />
+
+							<p>
+							<strong>1 -</strong> As with the above diagram here our Information retrieval microservice upon receiving new information creates an event.
+							</p>
+							
+							<p>
+							<strong>2 -</strong> The News microservice uses this new information to update its database.
+							</p>
+							
+							<p>
+							<strong>3 -</strong> The Historic microservice notifies the machine learning module that there is new information.
+							</p>
+							
+							<p>
+							<strong>4 -</strong> The Machine learning module sends new predictions.
+							</p>
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Summary of microservices scope</h2>
+							</header>
+
+							<table style="width:100%">
+  <tr>
+    <th>Component</th>
+    <th>Github Repository</th>
+    <th>MVP level</th>
+	<th>Language(s)</th>
+	<th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="#overview-userinterface">User Interface</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/frontend">Cryptotracker-frontend</a></td>
+    <td>2</td>
+	<td>React.js</td>
+	<td>User interface to interact with the backend</td>
+  </tr>
+  <tr>
+    <td><a href="#overview-accountmicroservice">Account microservice</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/accountModule/AccountApp">Cryptotracker-accountModule</a></td>
+    <td>3</td>
+	<td>Spring Boot Java</td>
+	<td>Contains the users database as well as support for some of the interactions such as alarms</td>
+  </tr>
+    <tr>
+    <td><a href="#overview-historicmicroservice">Historic microservice</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/history">Cryptotracker-history</a></td>
+    <td>2</td>
+	<td>Spring Boot Java</td>
+	<td>Keeps track of the cryptocurrencies and exposes that information to the frontend as well as communicating with the ML module</td>
+  </tr>
+    </tr>
+    <tr>
+    <td><a href="#overview-newsmicroservice">News microservice</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/repository">Cryptotracker-repository</a></td>
+    <td>1</td>
+	<td>Spring Boot Java</td>
+	<td>Saves the news and provides functionality of queries to the frontend</td>
+  </tr>
+    </tr>
+    </tr>
+    <tr>
+    <td><a href="#overview-mlmodule">Machine Learning module</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/mlModule">Cryptotracker-mlModule</a></td>
+    <td>3</td>
+	<td>Python</td>
+	<td>Gives prediction on the different cryptocurrencies with the historic microservice information</td>
+  </tr>
+    </tr>
+    </tr>
+    </tr>
+    <tr>
+    <td><a href="#overview-retrievalmicroservice">Information retrieval microservice</a></td>
+    <td><a href="https://github.com/DevMUA/CryptoTracker/tree/main/retrieval">Cryptotracker-retrieval</a></td>
+    <td>2</td>
+	<td>Spring Boot Java</td>
+	<td>Communicates with the various API's and publishes the information to the backend</td>
+  </tr>
+</table>
+
+			</div>
+			</section>
+							<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Microservices Overview</h2>
+							</header>
+
+							<p>An overview of the microservices:
+							</p>
+
+							<h3 id="overview-userinterface">User Interface</h3>
+
+							<img class ="systemcontext" src="images/userinterface.png" alt="" />
+							<p><strong>Description:</strong> The user interface for our CryptoTracker Application is implemented using React.js and 
+								communicates with the different backend API's.
+							</strong>
+							</p>
+							<p>- Log in</p>
+							<p>- Create Alarm</p>
+							<p>- Add Favourite Crypto</p>
+							<p>- List All cryptos</p>
+							<p>- Give detailed information on each crypto</p>
+							<p>- Notify user of a new occurrance on their alarm</p>
+							<h3 id="overview-accountmicroservice">Account Microservice</h3>
+							<img class ="systemcontext" src="images/accountmoduleoverview.png" alt="" />
+							<p><strong>Description:</strong> The Account microservice is one of the main modules that takes care of all user information including:.
+							</strong>
+							</p>
+							<p>- Saving Alarms</p>
+							<p>- Verifying if an alarm is true</p>
+							<p>- Saving favourite Coins</p>
+							<p>- Saving users (Registration with security)</p>
+							<p>- Notifying User (front-end direct stream communication and email)</p>
+							<h3 id="overview-historicmicroservice">Historic Microservice</h3>
+							<img class ="systemcontext" src="images/historicoverview.png" alt="" />
+							<p><strong>Description:</strong> The Historic microservice is another of the main modules that takes care of all things regarding the main functionality
+								of the application:
+							</strong>
+							</p>
+							<p>- Saving crypto information</p>
+							<p>- Showing crypto information to the front-end</p>
+							<p>- Giving detailed information on each crypto</p>
+							<p>- Giving a machine learning prediction (by communicating with the ML module)</p>
+							<p>- Confirming if user alarms are true</p>
+							<h3 id="overview-newsmicroservice">News Microservice</h3>
+							<img class ="systemcontext" src="images/newsoverview.png" alt="" />
+							<p><strong>Description:</strong> The news microservice takes care of relying crypto information to the user:.
+							</strong>
+							</p>
+							<p>- Saving News</p>
+							<p>- Giving tailored news according to user specifications</p>
+							<h3 id="overview-mlmodule">Machine Learning module</h3>
+							<img class ="systemcontext" src="images/mlmoduleoverview.png" alt="" />
+							<p><strong>Description:</strong> The Machine learning module works closely with the historic module to provide predictions:.
+							</strong>
+							</p>
+							<p>- Gives accurate predictions depending on crypto currencies behaviors</p>
+							<h3 id="overview-retrievalmicroservice">Information Retrieval Microservice</h3>
+							<img class ="systemcontext" src="images/overviewretrieval.png" alt="" />
+							<p><strong>Description:</strong> The Information Retrieval microservice feeds information into the other backend microservices:.
+							</strong>
+							</p>
+							<p>- Communicates with the News API and publishes it to the topic</p>
+							<p>- Communicates with the Crypto API and publishes it to the topic</p>
+							
+
+						</div>
+				</section>
+
+			</div>
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; CryptoTracker</li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
